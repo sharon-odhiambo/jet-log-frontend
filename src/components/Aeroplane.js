@@ -1,24 +1,42 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux/es/exports';
+import { NavLink } from 'react-router-dom';
+import { FcRight } from 'react-icons/fc';
 import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
 
 const Aeroplane = () => {
   const dispatch = useDispatch();
+  const aeroplanes = useSelector((state) => state);
   useEffect(() => {
-    dispatch(fetchAeroplane());
-  }, []);
-  const aeroplane = useSelector((state) => state);
+    if (!aeroplanes.length) {
+      dispatch(fetchAeroplane());
+    }
+  }, [dispatch, aeroplanes]);
+
+  const onClickHandler = (e) => {
+    localStorage.clear();
+    const aero = aeroplanes.find((a) => a.id === e.target.id);
+    localStorage.setItem('aero', JSON.stringify(aero));
+  };
   return (
-    <>
-      <h2 className="text-light">Latest Models</h2>
+    <div className="d-flex flex-column justify-content-center align-items-center">
+      <h2>Latest Models</h2>
       <p>Kindly select a plane for renting</p>
-      <div>
-        <img src={aeroplane.photo} alt={aeroplane.name} width="50" height="50" />
-        <p>{aeroplane.name}</p>
-        <p>{aeroplane.description}</p>
-      </div>
-    </>
+      {aeroplanes.map((a) => (
+        <div key="aero">
+          <img src={a.image} alt={a.name} width="300" height="100" />
+          <p>{a.name}</p>
+          <p>{a.description}</p>
+          <NavLink
+            key={a.links}
+            to="/Aeroplane"
+          >
+            <FcRight id={a.id} onClick={onClickHandler} />
+          </NavLink>
+        </div>
+      ))}
+    </div>
   );
 };
 
