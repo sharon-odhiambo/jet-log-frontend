@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Panther';
+  src: url('../fonts/PointpantherdemoBold-X32lP.otf');
+}
+
+body {
+  margin: 0;
+}
+
+.logo {
+  max-width: 10rem;
+}
+
+.logo-holder {
+  justify-content: center !important;
+}
+
+.main {
+  margin-left: 25%;
+}
+
+.main h1 {
+  text-align: center;
+}
+
+.holder {
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  border-right: solid 5px #f9f9f9;
+}
+
+.holder li {
+  display: flex;
+  color: #000;
+  padding: 8px 0 8px 5%;
+  text-decoration: none;
+  font-family: 'Panther', sans-serif;
+  justify-content: flex-start;
+}
+
+.holder li a {
+  color: #000;
+  text-decoration: none;
+  padding: 1rem;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.holder li a:hover {
+  background-color: #a4ff00;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: #97be12;
+  color: #fefefa !important;
+  font-size: 1.1rem !important;
+  border-radius: 3px;
+}
+
+.active:hover {
+  background-color: #97be12 !important;
+}
+
+.mobileNavigation {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .holder {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    border-right: none;
+  }
+
+  .mobileNavigation {
+    display: block;
+  }
+}
+
+.mobileNavigation svg {
+  font-size: 2rem;
+  color: #97be12;
+  position: absolute;
+  left: 5%;
+  z-index: 1;
+  cursor: pointer;
+}
