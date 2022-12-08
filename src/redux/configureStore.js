@@ -2,8 +2,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import aeroplaneReducer from './aeroplanes/aeroplanes';
 
 const rootReducer = combineReducers({
+  aeroplanes: aeroplaneReducer,
   /* add reducers here */
 });
 
