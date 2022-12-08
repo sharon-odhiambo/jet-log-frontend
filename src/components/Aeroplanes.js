@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux/es/exports';
 import { NavLink } from 'react-router-dom';
 import { FcRight } from 'react-icons/fc';
 import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
+import '../styles/Homepage.css';
 
-const Aeroplane = () => {
+const Aeroplanes = () => {
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state);
   useEffect(() => {
@@ -20,12 +21,12 @@ const Aeroplane = () => {
     localStorage.setItem('aero', JSON.stringify(aero));
   };
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center">
+    <div className="d-flex flex-column justify-content-center align-items-center home">
       <h2>Latest Models</h2>
       <p>Kindly select a plane for renting</p>
       {aeroplanes.map((a) => (
-        <div key="aero">
-          <img src={a.image} alt={a.name} width="300" height="100" />
+        <div key="aero" className="aero">
+          <img src={a.image} alt={a.name} width="250" height="150" />
           <p>{a.name}</p>
           <p>{a.description}</p>
           <NavLink
@@ -40,4 +41,4 @@ const Aeroplane = () => {
   );
 };
 
-export default Aeroplane;
+export default Aeroplanes;

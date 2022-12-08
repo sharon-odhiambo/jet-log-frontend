@@ -1,0 +1,13 @@
+.home {
+  color: #101010;
+  display: flex;
+  justify-content: center;
+}
+
+.aero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 8px;
+}
