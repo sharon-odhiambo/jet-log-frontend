@@ -1,3 +1,5 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+
 .home {
   color: #101010;
   display: flex;
@@ -9,5 +11,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 8px 8px;
+}
+
+.image {
+  border-radius: 50%;
 }
