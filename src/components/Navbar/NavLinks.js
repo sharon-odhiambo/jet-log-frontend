@@ -1,6 +1,13 @@
 /* eslint-disable */
 import { NavLink } from 'react-router-dom';
 import logo from '../../logo/jet-log/png/logo-color.png';
+import {
+  FaGoogle,
+  FaGithub,
+  FaPinterest,
+  FaTwitter,
+  FaFacebook,
+} from 'react-icons/fa';
 
 const NavLinks = ({ isOpen, setIsOpen }) => (
   <ul className="holder">
@@ -47,6 +54,16 @@ const NavLinks = ({ isOpen, setIsOpen }) => (
       >
         Delete a Plane
       </NavLink>
+    </li>
+    <li className="social-links">
+      <FaGoogle className="social-icon" />
+      <FaGithub className="social-icon" />
+      <FaPinterest className="social-icon" />
+      <FaTwitter className="social-icon" />
+      <FaFacebook className="social-icon" />
+    </li>
+    <li className="footer-date">
+      <p>2022 Microverse</p>
     </li>
   </ul>
 );
