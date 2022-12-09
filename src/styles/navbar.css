@@ -45,6 +45,11 @@ body {
   justify-content: flex-start;
 }
 
+.user-auth-links a {
+  text-align: right !important;
+  width: auto !important;
+}
+
 .holder li a {
   color: #000;
   text-decoration: none;
@@ -123,4 +128,10 @@ body {
   font-weight: 600;
   font-family: 'Roboto', sans-serif !important;
   margin-bottom: 2rem;
+}
+
+.user-auth-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60%;
 }
