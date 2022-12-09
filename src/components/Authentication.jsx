@@ -6,24 +6,51 @@ import Modal from 'react-bootstrap/Modal';
 const Authentication = () => {
   const [show, setShow] = useState(false);
   const [auth, setAuth] = useState('Sign In');
+
   const handleShow = () => {
     setAuth('Sign In');
     setShow(!show);
   };
+
+  const validEmail = (email) => {
+    const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    return regex.test(email);
+  };
+
+  const validate = () => {
+    const form = document.querySelector('form');
+    const name = form.name.value;
+    const password = form.password.value;
+
+    if (!name) {
+      document.querySelector('.name-err').textContent = 'Name cannot be blank';
+      setTimeout(() => {
+        document.querySelector('.name-err').textContent = '';
+      }, 2000);
+    }
+
+    if (password.length < 6) {
+      document.querySelector('.pass-err').textContent = 'Password must be at least 6 characters';
+      setTimeout(() => {
+        document.querySelector('.pass-err').textContent = '';
+      }, 2000);
+    }
+  };
+
   const handleLogin = () => {
     const form = document.querySelector('form');
-    const info = {
-      user: {
-        name: form.name.value,
-        password: form.password.value,
-      },
-    };
+    validate();
     fetch('http://127.0.0.1:3000/api/v1/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(info),
+      body: JSON.stringify({
+        user: {
+          name: form.name.value,
+          password: form.password.value,
+        },
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -45,36 +72,45 @@ const Authentication = () => {
 
   const handleRegister = () => {
     const form = document.querySelector('form');
+    const email = form.email.value;
+    validate();
 
-    fetch('http://127.0.0.1:3000/api/v1/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: {
-          name: form.name.value,
-          email: form.email.value,
-          password: form.password.value,
+    if (!email || !validEmail(email)) {
+      document.querySelector('.mail-err').textContent = 'Please enter a valid email address';
+      setTimeout(() => {
+        document.querySelector('.mail-err').textContent = '';
+      }, 2000);
+    } else {
+      fetch('http://127.0.0.1:3000/api/v1/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.user) {
-          localStorage.setItem(
-            'session',
-            JSON.stringify({
-              user: data.user.name,
-              token: data.token,
-            }),
-          );
-          setShow(!show);
-          setAuth('Log Out');
-        } else {
-          throw new Error('Invalid credentials');
-        }
-      });
+        body: JSON.stringify({
+          user: {
+            name: form.name.value,
+            email,
+            password: form.password.value,
+          },
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.user) {
+            localStorage.setItem(
+              'session',
+              JSON.stringify({
+                user: data.user.name,
+                token: data.token,
+              }),
+            );
+            setShow(!show);
+            setAuth('Log Out');
+          } else {
+            throw new Error('Invalid credentials');
+          }
+        });
+    }
   };
 
   return (
@@ -102,6 +138,7 @@ const Authentication = () => {
                 className="form-control"
                 autoFocus
               />
+              <small className="text-danger name-err" />
             </Form.Group>
             {auth === 'Sign Up' && (
               <Form.Group
@@ -115,6 +152,7 @@ const Authentication = () => {
                   placeholder="email"
                   className="form-control"
                 />
+                <small className="text-danger mail-err" />
               </Form.Group>
             )}
             <Form.Group
@@ -127,6 +165,7 @@ const Authentication = () => {
                 name="password"
                 placeholder="password"
               />
+              <small className="text-danger pass-err" />
             </Form.Group>
             <Button
               variant="success"
