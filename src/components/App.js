@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Aeroplanes from './Aeroplanes';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Navbar />
         <Route path="/" element={<Aeroplanes />} />
         <Route path="/Aeroplanes" element={<Aeroplanes />} />
       </Routes>
