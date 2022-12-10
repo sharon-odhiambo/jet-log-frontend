@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
+import MakeReservation from './components/Reservations/MakeReservation';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <div className="main">
         <h1>Hello World</h1>
+        <MakeReservation />
       </div>
     </div>
   );
