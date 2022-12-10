@@ -6,10 +6,9 @@ import Navbar from './Navbar/Navbar';
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Navbar />
         <Route path="/" element={<Aeroplanes />} />
-        <Route path="/Aeroplanes" element={<Aeroplanes />} />
       </Routes>
     </BrowserRouter>
   );
