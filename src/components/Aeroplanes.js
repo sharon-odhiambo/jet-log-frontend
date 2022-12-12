@@ -25,8 +25,8 @@ const Aeroplanes = () => {
   const handleDragStart = (e) => e.preventDefault();
   return (
     aeroplanes.length > 0 && (
-    <div className="d-flex flex-column gap-3 justify-content-center align-items-center mt-5 pt-5 home">
-      <h2>Latest Models</h2>
+    <div className="d-flex flex-column gap-3 justify-content-center align-items-center home">
+      <h2 className="mt-5 pt-5">Latest Models</h2>
       <p className="top">Kindly select a plane for renting</p>
       <Carousel
         plugins={[
