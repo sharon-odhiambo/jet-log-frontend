@@ -14,26 +14,26 @@ const Aeroplane = () => {
         <img className="plane-details-image center" src={aeroplanes[plane].image} alt={aeroplanes[plane].name} />
       </div>
       <div className="plane-right d-flex flex-column center">
-        <h1 className="text-center">{aeroplanes[plane].name}</h1>
+        <h1 className="text-end">{aeroplanes[plane].name}</h1>
 
         <div className="plane-table">
-          <div className="d-flex justify-content-between">
+          <div className="deet">
             <p>Make Year</p>
             <p>{aeroplanes[plane].make_year}</p>
           </div>
-          <div className="d-flex justify-content-between">
-            <p>Country of Origin</p>
+          <div className="deet">
+            <p>Country of origin</p>
             <p>{aeroplanes[plane].country}</p>
           </div>
-          <div className="d-flex justify-content-between">
-            <p>Fuel ranking</p>
+          <div className="deet">
+            <p>Fuel rating</p>
             <p>{aeroplanes[plane].fuel}</p>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="deet">
             <p>Passengers capacity</p>
             <p>{aeroplanes[plane].passengers}</p>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="deet">
             <p>Crew capacity</p>
             <p>{aeroplanes[plane].crew}</p>
           </div>
