@@ -7,9 +7,11 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Aeroplanes />} />
-      </Routes>
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<Aeroplanes />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

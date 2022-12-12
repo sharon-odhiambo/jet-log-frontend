@@ -14,7 +14,7 @@ const Aeroplanes = () => {
     if (!aeroplanes.length) {
       dispatch(fetchAeroplane());
     }
-  }, [dispatch, aeroplanes]);
+  }, [aeroplanes, dispatch]);
 
   const onClickHandler = (e) => {
     localStorage.clear();
@@ -24,6 +24,7 @@ const Aeroplanes = () => {
 
   const handleDragStart = (e) => e.preventDefault();
   return (
+    aeroplanes.length > 0 && (
     <div className="d-flex flex-column gap-3 justify-content-center align-items-center mt-5 pt-5 home">
       <h2>Latest Models</h2>
       <p className="top">Kindly select a plane for renting</p>
@@ -49,7 +50,7 @@ const Aeroplanes = () => {
               },
             ],
           },
-          900: {
+          1100: {
             plugins: [
               'arrows',
               {
@@ -62,6 +63,8 @@ const Aeroplanes = () => {
           },
         }}
         mouseTracking
+        slide={false}
+        fade={false}
       >
         {aeroplanes.map((a) => (
           <div key="aero" className="d-flex flex-column justify-content-center align-items-center gap-3">
@@ -69,17 +72,16 @@ const Aeroplanes = () => {
               key={a.links}
               to="/Aeroplane"
             >
-              <img
-                src={a.image}
-                alt={a.name}
-                id={a.id}
-                onClick={onClickHandler}
-                onDragStart={handleDragStart}
-                role="presentation"
-                width="250"
-                height="250"
-                className="image"
-              />
+              <div className="back">
+                <div
+                  style={{ backgroundImage: `url(${a.image})` }}
+                  id={a.id}
+                  onClick={onClickHandler}
+                  onDragStart={handleDragStart}
+                  role="presentation"
+                  className="image"
+                />
+              </div>
             </NavLink>
             <span className="name pt-3">{a.name}</span>
             <p className="d-flex align-self-center ps-5">{a.description}</p>
@@ -87,6 +89,7 @@ const Aeroplanes = () => {
         ))}
       </Carousel>
     </div>
+    )
   );
 };
 
