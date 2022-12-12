@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { GoChevronRight } from 'react-icons/go';
+import { ImCircleRight } from 'react-icons/im';
 
 const Aeroplane = () => {
   const { aeroplaneId } = useParams();
@@ -51,7 +52,10 @@ const Aeroplane = () => {
           <GoChevronRight color="#f8c605" />
         </Link>
         <Link to="/">
-          <button type="button">Reserve</button>
+          <button className="reserve-button" type="button">
+            Reserve
+            <ImCircleRight style={{ margin: '2px 2px 2px 10px' }} />
+          </button>
         </Link>
       </div>
     </div>
