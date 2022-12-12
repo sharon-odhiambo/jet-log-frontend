@@ -38,12 +38,8 @@ code {
   margin: 20px;
 }
 
-.plane-right {
-  border: 1px solid #E1E2E4;
-}
-
 .plane-table div:nth-child(2n+1) {
-  background-color: #E1E2E4;
+  background-color: #e1e2e4;
 }
 
 .center {
@@ -60,7 +56,6 @@ p {
 .deet {
   display: flex;
   justify-content: space-between;
-  /* align-self: center; */
   align-items: center;
   height: 100%;
 }

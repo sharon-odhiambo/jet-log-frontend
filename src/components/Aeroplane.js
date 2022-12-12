@@ -47,6 +47,7 @@ const Aeroplane = () => {
             fontWeight: 'bold',
             fontSize: '1rem',
             alignSelf: 'flex-end',
+            margin: '20px 0',
           }}
         >
           DISCOVER MORE MODELS
