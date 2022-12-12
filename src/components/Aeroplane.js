@@ -46,12 +46,13 @@ const Aeroplane = () => {
             color: '#4a4a4a',
             fontWeight: 'bold',
             fontSize: '1rem',
+            alignSelf: 'flex-end',
           }}
         >
           DISCOVER MORE MODELS
           <GoChevronRight color="#f8c605" />
         </Link>
-        <Link to="/">
+        <Link to="/" style={{ alignSelf: 'flex-end' }}>
           <button className="reserve-button" type="button">
             Reserve
             <ImCircleRight style={{ margin: '2px 2px 2px 10px' }} />
