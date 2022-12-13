@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addAeroplane } from '../../redux/aeroplanes/aeroplanes';
+import { addAeroplane } from '../../redux/aeroplanes/addAeroplanes';
 import '../../styles/add-plane.css';
 
 const InputAeroplane = () => {

@@ -6,7 +6,7 @@ const initialState = {
   aeroplanes: [],
 };
 
-const aeroplaneReducer = (state = initialState, action) => {
+const addAeroplaneReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_AEROPLANE:
       return {
@@ -30,4 +30,4 @@ export const addAeroplane = (aeroplane) => (dispatch) => {
     .catch((err) => err);
 };
 
-export default aeroplaneReducer;
+export default addAeroplaneReducer;
