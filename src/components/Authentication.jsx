@@ -6,9 +6,13 @@ import Modal from 'react-bootstrap/Modal';
 const Authentication = () => {
   const [show, setShow] = useState(false);
   const [auth, setAuth] = useState('Sign In');
+  const authentication = localStorage.getItem('session');
 
   const handleShow = () => {
-    setAuth('Sign In');
+    const auth = localStorage.getItem('session');
+    if (auth) {
+      localStorage.removeItem('session');
+    }
     setShow(!show);
   };
 
@@ -24,15 +28,19 @@ const Authentication = () => {
 
     if (!name) {
       document.querySelector('.name-err').textContent = 'Name cannot be blank';
+      document.querySelector('.name-err').previousSibling.style.borderColor = 'red';
       setTimeout(() => {
         document.querySelector('.name-err').textContent = '';
+        document.querySelector('.name-err').previousSibling.style.borderColor = '#E0E0E0';
       }, 2000);
     }
 
     if (password.length < 6) {
       document.querySelector('.pass-err').textContent = 'Password must be at least 6 characters';
+      document.querySelector('.pass-err').previousSibling.style.borderColor = 'red';
       setTimeout(() => {
         document.querySelector('.pass-err').textContent = '';
+        document.querySelector('.pass-err').previousSibling.style.borderColor = '#E0E0E0';
       }, 2000);
     }
   };
@@ -63,8 +71,11 @@ const Authentication = () => {
             }),
           );
           setShow(!show);
-          setAuth('Log Out');
         } else {
+          document.querySelector('.err').textContent = 'Invalid username or password';
+          setTimeout(() => {
+            document.querySelector('.err').textContent = '';
+          }, 2000);
           throw new Error('Invalid credentials');
         }
       });
@@ -77,8 +88,10 @@ const Authentication = () => {
 
     if (!email || !validEmail(email)) {
       document.querySelector('.mail-err').textContent = 'Please enter a valid email address';
+      document.querySelector('.mail-err').previousSibling.style.borderColor = 'red';
       setTimeout(() => {
         document.querySelector('.mail-err').textContent = '';
+        document.querySelector('.mail-err').previousSibling.style.borderColor = '#E0E0E0';
       }, 2000);
     } else {
       fetch('http://127.0.0.1:3000/api/v1/users', {
@@ -105,9 +118,12 @@ const Authentication = () => {
               }),
             );
             setShow(!show);
-            setAuth('Log Out');
           } else {
-            throw new Error('Invalid credentials');
+            document.querySelector('.err').textContent = 'Username or email already taken';
+            setTimeout(() => {
+              document.querySelector('.err').textContent = '';
+            }, 2000);
+            throw new Error('Invalid username or email');
           }
         });
     }
@@ -120,7 +136,7 @@ const Authentication = () => {
         className="nav-link bg-light border-0 ps-3"
         onClick={handleShow}
       >
-        {auth}
+        {authentication ? 'Log Out' : 'Sign In'}
       </Button>
 
       <Modal show={show} onHide={handleShow}>
@@ -128,7 +144,7 @@ const Authentication = () => {
           <Modal.Title>{auth}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form action="">
+          <Form action="" className="auth">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -168,13 +184,15 @@ const Authentication = () => {
               <small className="text-danger pass-err" />
             </Form.Group>
             <Button
-              variant="success"
+              style={{ backgroundColor: '#97e00f' }}
+              className="border-0"
               type="button"
               onClick={auth === 'Sign In' ? handleLogin : handleRegister}
             >
               {auth}
             </Button>
           </Form>
+          <small className="text-danger err" />
         </Modal.Body>
         <Modal.Footer>
           {auth === 'Sign In' && (
