@@ -15,10 +15,6 @@ body {
   justify-content: center !important;
 }
 
-.main {
-  margin-left: 25%;
-}
-
 .main h1 {
   text-align: center;
 }
@@ -34,6 +30,7 @@ body {
   border-right: solid 5px #f9f9f9;
   display: flex;
   flex-direction: column;
+  z-index: 5;
 }
 
 .holder li {
@@ -106,7 +103,7 @@ body {
   color: #97be12;
   position: absolute;
   left: 5%;
-  z-index: 1;
+  z-index: 6;
   cursor: pointer;
 }
 
