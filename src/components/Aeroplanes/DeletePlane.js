@@ -17,6 +17,7 @@ const DeleteAeroplanes = () => {
 
   const onClickDelete = (e) => {
     dispatch(deletePlane(e.target.id));
+    window.location.reload();
   };
 
   return (
@@ -71,7 +72,7 @@ const DeleteAeroplanes = () => {
               />
             </div>
             <span className="name pt-3">{a.name}</span>
-            <button type="button" id={a.id} onClick={onClickDelete}>Delete</button>
+            <button type="button" id={a.id} onClick={onClickDelete}><span>Delete</span></button>
           </div>
         ))}
       </Carousel>

@@ -16,7 +16,6 @@ export const deletePlane = createAsyncThunk(
     await fetch(`http://127.0.0.1:3000/api/v1/aeroplanes/${id}`, {
       method: 'DELETE',
     });
-    return id;
   },
 );
 
@@ -25,7 +24,10 @@ const deleteplanesReducer = (state = initialState, action) => {
     case `${DELETE_AEROPLANE}/fulfilled`:
       return action.payload;
     case `${DELETE_PLANE}/fulfilled`:
-      return state.filter((state) => state.id !== action.payload);
+      return [
+        ...state,
+        state.filter((state) => state.id !== action.payload),
+      ];
     default:
       return state;
   }
