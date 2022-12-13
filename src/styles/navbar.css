@@ -16,7 +16,7 @@ body {
 }
 
 .main {
-  margin-left: 25%;
+  margin-left: 15%;
 }
 
 .main h1 {
@@ -28,12 +28,12 @@ body {
   padding: 0;
   width: 15%;
   background-color: #fff;
-  height: 100vh;
+  height: 100%;
   position: fixed;
-  overflow: auto;
   border-right: solid 5px #f9f9f9;
   display: flex;
   flex-direction: column;
+  z-index: 5;
 }
 
 .holder li {
@@ -53,10 +53,10 @@ body {
 .holder li a {
   color: #000;
   text-decoration: none;
-  padding: 1rem;
+  padding: 0.7rem;
   width: 100%;
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 1vw;
 }
 
 .holder li a:hover {
@@ -67,7 +67,7 @@ body {
 .active {
   background-color: #97be12;
   color: #fefefa !important;
-  font-size: 0.9rem !important;
+  font-size: 1.2vw !important;
   border-radius: 3px;
 }
 
@@ -80,6 +80,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .holder li a {
+    font-size: 4vw;
+  }
+
+  .active {
+    font-size: 5vw !important;
+  }
+
   .navigation {
     display: none;
   }
@@ -99,6 +107,10 @@ body {
   .mobileNavigation {
     display: block;
   }
+
+  .user-auth-links {
+    margin-top: 10% !important;
+  }
 }
 
 .mobileNavigation .hamburger {
@@ -106,7 +118,8 @@ body {
   color: #97be12;
   position: absolute;
   left: 5%;
-  z-index: 1;
+  top: 5%;
+  z-index: 6;
   cursor: pointer;
 }
 
