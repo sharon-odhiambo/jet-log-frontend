@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { GoChevronRight } from 'react-icons/go';
 import { ImCircleRight } from 'react-icons/im';
+import '../styles/Details.css';
 
 const Aeroplane = () => {
   const { aeroplaneId } = useParams();

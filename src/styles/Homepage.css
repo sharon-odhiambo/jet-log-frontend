@@ -1,22 +1,10 @@
-.home {
-  color: #101010;
-  display: flex;
-  justify-content: center;
-  z-index: -2;
-}
-
-.aero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px 8px;
-}
 @import "react-alice-carousel/lib/alice-carousel.css";
+
 @font-face {
   font-family: 'Panther';
   src: url('../fonts/PointpantherdemoBold-X32lP.otf');
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 body {
@@ -59,14 +47,14 @@ body {
   margin: auto;
 }
 
-.BrainhubCarousel__arrows  {
+.BrainhubCarousel__arrows {
   background-color: #97be12;
   width: 90px;
   height: 60px;
   border-radius: 0 50% 50% 0 / 60%;
 }
 
-.BrainhubCarousel__arrows:hover:enabled  {
+.BrainhubCarousel__arrows:hover:enabled {
   background-color: #97e00f;
 }
 
@@ -108,7 +96,6 @@ p {
     width: 200px;
     height: 200px;
   }
-  
 
   .image {
     width: 250px;
