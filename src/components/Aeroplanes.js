@@ -70,7 +70,7 @@ const Aeroplanes = () => {
           <div key="aero" className="d-flex flex-column justify-content-center align-items-center gap-3">
             <NavLink
               key={a.links}
-              to="/Aeroplane"
+              to={`/Aeroplanes/${a.id}`}
             >
               <div className="back">
                 <div
