@@ -15,6 +15,10 @@ body {
   justify-content: center !important;
 }
 
+.main {
+  margin-left: 15%;
+}
+
 .main h1 {
   text-align: center;
 }
