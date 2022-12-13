@@ -66,6 +66,8 @@ const Authentication = () => {
           localStorage.setItem(
             'session',
             JSON.stringify({
+              user_id: data.user.id,
+              role: data.user.role,
               user: data.user.name,
               token: data.token,
             }),
@@ -83,7 +85,7 @@ const Authentication = () => {
 
   const handleRegister = () => {
     const form = document.querySelector('form');
-    const email = form.email.value;
+    const email = form.email.value.toLowerCase();
     validate();
 
     if (!email || !validEmail(email)) {
@@ -101,7 +103,7 @@ const Authentication = () => {
         },
         body: JSON.stringify({
           user: {
-            name: form.name.value,
+            name: form.name.value.toLowerCase(),
             email,
             password: form.password.value,
           },
@@ -114,6 +116,8 @@ const Authentication = () => {
               'session',
               JSON.stringify({
                 user: data.user.name,
+                user_id: data.user.id,
+                role: data.user.role,
                 token: data.token,
               }),
             );
