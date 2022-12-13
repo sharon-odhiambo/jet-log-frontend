@@ -88,10 +88,6 @@ p {
 }
 
 @media screen and (min-width: 770px) {
-  .BrainhubCarousel__container {
-    padding-left: 15%;
-  }
-
   .back {
     width: 200px;
     height: 200px;
