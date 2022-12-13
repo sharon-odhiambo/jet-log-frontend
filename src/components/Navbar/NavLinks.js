@@ -8,6 +8,7 @@ import {
   FaTwitter,
   FaFacebook,
 } from 'react-icons/fa';
+import Authentication from '../Authentication';
 
 const NavLinks = ({ isOpen, setIsOpen }) => (
   <ul className="holder">
@@ -56,15 +57,7 @@ const NavLinks = ({ isOpen, setIsOpen }) => (
       </NavLink>
     </li>
     <li className="user-auth-links">
-      <NavLink to="/login" className="link" onClick={() => setIsOpen(!isOpen)}>
-        Login
-      </NavLink>
-      <NavLink to="/signup" className="link" onClick={() => setIsOpen(!isOpen)}>
-        Signup
-      </NavLink>
-      <NavLink to="/logout" className="link" onClick={() => setIsOpen(!isOpen)}>
-        Logout
-      </NavLink>
+       <Authentication />
     </li>
     <li className="social-links">
       <FaGoogle className="social-icon" />
