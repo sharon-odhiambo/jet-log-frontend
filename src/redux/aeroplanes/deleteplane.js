@@ -24,10 +24,7 @@ const deleteplanesReducer = (state = initialState, action) => {
     case `${DELETE_AEROPLANE}/fulfilled`:
       return action.payload;
     case `${DELETE_PLANE}/fulfilled`:
-      return [
-        ...state,
-        state.filter((state) => state.id !== action.payload),
-      ];
+      return state.filter((state) => state.id !== action.payload);
     default:
       return state;
   }
