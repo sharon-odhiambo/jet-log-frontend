@@ -1,10 +1,15 @@
-/* eslint-disable */
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import aeroplanesReducer from './aeroplanes/aeroplanes';
+import reservationsReducer from './reservations/reservations';
+
+const rootReducer = combineReducers({
+  reservations: reservationsReducer,
+  aeroplanes: aeroplanesReducer,
+});
 
 const store = configureStore({
-  reducer: aeroplanesReducer,
+  reducer: rootReducer,
   middleware: [thunk],
 });
 
