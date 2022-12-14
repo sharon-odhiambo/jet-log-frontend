@@ -1,155 +1,123 @@
-// /* eslint-disable jsx-a11y/label-has-associated-control */
-// import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useParams } from 'react-router-dom';
-
-// const ReservationFrom = () => {
-//   // structure of the reservation table:
-//   // startDate - endDate - userId - aeroplaneId - city
-//   const [startDate, setStartDate] = useState('');
-//   const [endDate, setEndDate] = useState('');
-//   // get user id from local storage
-//   const userId = localStorage.getItem('user.id');
-//   // get aeroplane id from the url
-//   const { aeroplaneId } = useParams();
-//   const [aeroplaneName, setAeroplaneName] = useState('');
-//   const [city, setCity] = useState('');
-//   const [message, setMessage] = useState('');
-//   const aeroplanes = useSelector((state) => state.aeroplanes);
-//   const dispatch = useDispatch();
-//   const submitReservation = (e) => {
-//     e.preventDefault();
-//     const reservation = {
-//       start_date: startDate,
-//       end_date: endDate,
-//       user_id: userId,
-//       aeroplane_id: aeroplaneId,
-//       city,
-//     };
-
-//     const notify = (response) => {
-//       if (response === 201) {
-//         setMessage('Reservation created successfully ✔️');
-//       } else {
-//         setMessage('Something went wrong ❌');
-//       }
-//     };
-
-//     const request = {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(reservation),
-//     };
-//     fetch('http://localhost:3000/api/v1/users/${userId}/reservations', request)
-//       .then((response) => notify(response.status));
-
-//     setStartDate('');
-//     setEndDate('');
-//     setCity('');
-//     setInterval(() => { setMessage(''); }, 5000);
-//   };
-
-//   useEffect(() => {
-//     dispatch(fetchAeroplanes());
-//   }, [dispatch]);
-
-//   if (userId === null) {
-//     return (
-//       <div>Please register/login to make a reservation</div>
-//     );
-//   }
-
-//   return (
-//     <div>
-//       <form id="reservation-form">
-//         <div className="form-group">
-//           <label htmlFor="aeroplaneName">Aeroplane Name</label>
-//           <select
-//             onBlur={(e) => setAeroplaneName(e.target.value)}
-//             // autoFocus
-//             value={aeroplaneName}
-//             id="dropdown"
-//           >
-//             <option value="none" selected disabled hidden>Select an Aeroplane</option>
-//             {aeroplanes.map((aeroplane) => (
-//               <option key={aeroplane.id} value={aeroplane.id}>{aeroplane.name}</option>
-//             ))}
-//           </select>
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="startDate">Start Date</label>
-//           <input type="date" id="startDate"
-// value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="endDate">End Date</label>
-//           <input type="date" id="endDate"
-// value={endDate} onChange={(e) => setEndDate(e.target.value)} required />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="city">City</label>
-//           <input value={city} type="text" id="city"
-// onChange={(e) => setCity(e.target.value)} required />
-//         </div>
-//         <div className="form-group">
-//           <button type="submit" onClick={(e) => submitReservation(e)}>Reserve</button>
-//         </div>
-//       </form>
-//       <span>{message}</span>
-//     </div>
-//   );
-// };
-
-// export default ReservationFrom;
-
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
+import '../styles/MakeReservation.css';
 
 const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  // const { id } = useParams();
+  const [aeroplaneId, setAeroplaneId] = useState('');
   const [city, setCity] = useState('');
-  // const [message, setMessage] = useState('');
-  // need user id? don't think so this time
-  // get aeroplane id from the url
-  const { aeroplaneId } = useParams();
+  const [message, setMessage] = useState('');
+  const dispatch = useDispatch();
+  const aeroplanes = useSelector((state) => state);
+  const session = JSON.parse(localStorage.getItem('session'));
+  const { token } = session;
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const showMessage = (response) => {
+      if (response.status === 201) {
+        setMessage(<div>Reservation is succesfull ✔️</div>);
+      } else {
+        setMessage(<div>Something went wrong ❌</div>);
+      }
+    };
 
     fetch('http://localhost:3000/api/v1/reservations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         reservation: {
-          start_date: startDate, end_date: endDate, aeroplane_id: aeroplaneId, city,
+          start_date: startDate,
+          end_date: endDate,
+          aeroplane_id: aeroplaneId,
+          city,
         },
       }),
-    });
+    })
+      .then((response) => showMessage(response.status));
+
+    setStartDate('');
+    setEndDate('');
+    // setAeroplaneId('');
+    setCity('');
+    setInterval(() => { setMessage(''); }, 5000);
   }
 
+  useEffect(() => {
+    dispatch(fetchAeroplane());
+  }, [dispatch]);
+
   return (
-    <form id="reservation-form" onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="startDate">Start Date</label>
-        <input type="date" id="startDate" value={startDate} onChange={(e) => setStartDate(e.target.value)} required />
-      </div>
-      <div className="form-group">
-        <label htmlFor="endDate">End Date</label>
-        <input type="date" id="endDate" value={endDate} onChange={(e) => setEndDate(e.target.value)} required />
-      </div>
-      <div className="form-group">
-        <label htmlFor="city">City</label>
-        <input value={city} type="text" id="city" onChange={(e) => setCity(e.target.value)} required />
-      </div>
-      <div className="form-group">
-        <button type="submit">Reserve</button>
-      </div>
-    </form>
+    <div id="reservation-form-container">
+      <form id="reservation-form" onSubmit={handleSubmit}>
+        <div className="reservation-form-group">
+          <label className="reservation-label" htmlFor="startDate">Start Date</label>
+          <input
+            className="reservation-input"
+            type="date"
+            min={new Date().toISOString().split('T')[0]}
+            id="startDate"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="reservation-form-group">
+          <label className="reservation-label" htmlFor="endDate">End Date</label>
+          <input
+            className="reservation-input"
+            type="date"
+            id="endDate"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="reservation-form-group">
+          <label className="reservation-label" htmlFor="aeroplaneName">Aeroplane Name</label>
+          <select
+            className="reservation-input"
+            onChange={(e) => setAeroplaneId(e.target.value)}
+          // autoFocus
+            value={id}
+            id="dropdown"
+          >
+            <option hidden>
+              Select an Aeroplane
+            </option>
+            {aeroplanes.map((aeroplane) => (
+              <option key={aeroplane.id} value={aeroplane.id}>
+                {aeroplane.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="reservation-form-group">
+          <label className="reservation-label" htmlFor="city">City</label>
+          <input
+            className="reservation-input"
+            value={city}
+            type="text"
+            id="city"
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
+        <div className="reservation-form-group">
+          <button id="reserve" type="submit">Reserve</button>
+        </div>
+      </form>
+      <span>{message}</span>
+    </div>
   );
 };
 
