@@ -14,7 +14,6 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   overflow: hidden;
   background-color: #fff;
-  border-right: solid 5px #f9f9f9;
 }
 
 .home {
@@ -44,7 +43,7 @@ body {
 .BrainhubCarousel__container {
   position: relative;
   max-width: 100%;
-  margin: auto;
+  margin-right: 10px;
 }
 
 .BrainhubCarousel__arrows {
