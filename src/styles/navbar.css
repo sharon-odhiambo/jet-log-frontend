@@ -16,7 +16,7 @@ body {
 }
 
 .main {
-  margin-left: 25%;
+  margin-left: 15%;
 }
 
 .main h1 {
@@ -26,30 +26,37 @@ body {
 .holder {
   margin: 0;
   padding: 0;
-  width: 25%;
+  width: 15%;
   background-color: #fff;
   height: 100%;
   position: fixed;
-  overflow: auto;
   border-right: solid 5px #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
 }
 
 .holder li {
   display: flex;
   color: #000;
-  padding: 8px 0 8px 5%;
+  padding: 2px 0 2px 5%;
   text-decoration: none;
   font-family: 'Panther', sans-serif;
   justify-content: flex-start;
 }
 
+.user-auth-links a {
+  text-align: right !important;
+  width: auto !important;
+}
+
 .holder li a {
   color: #000;
   text-decoration: none;
-  padding: 1rem;
+  padding: 0.7rem;
   width: 100%;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 1vw;
 }
 
 .holder li a:hover {
@@ -60,7 +67,7 @@ body {
 .active {
   background-color: #97be12;
   color: #fefefa !important;
-  font-size: 1.1rem !important;
+  font-size: 1.2vw !important;
   border-radius: 3px;
 }
 
@@ -73,6 +80,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .holder li a {
+    font-size: 4vw;
+  }
+
+  .active {
+    font-size: 5vw !important;
+  }
+
   .navigation {
     display: none;
   }
@@ -92,13 +107,44 @@ body {
   .mobileNavigation {
     display: block;
   }
+
+  .user-auth-links {
+    margin-top: 10% !important;
+  }
 }
 
-.mobileNavigation svg {
+.mobileNavigation .hamburger {
   font-size: 2rem;
   color: #97be12;
   position: absolute;
   left: 5%;
-  z-index: 1;
+  top: 5%;
+  z-index: 6;
   cursor: pointer;
+}
+
+.social-icon {
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+
+.social-links {
+  padding: 0 !important;
+  align-self: center;
+  margin: auto 0 0 0;
+}
+
+.footer-date {
+  padding: 0 !important;
+  align-self: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif !important;
+  margin-bottom: 2rem;
+}
+
+.user-auth-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60%;
 }
