@@ -87,6 +87,21 @@ p {
   border-bottom-style: dashed;
 }
 
+button {
+  font-family: 'Panther', sans-serif;
+  background-color: #97be12;
+  padding: 4%;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover span {
+  background-color: #97e00f;
+  border-radius: 3px;
+}
+
 @media screen and (min-width: 770px) {
   .back {
     width: 170px;
