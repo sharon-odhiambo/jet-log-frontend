@@ -8,11 +8,16 @@ import '../styles/MakeReservation.css';
 const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [aeroplaneId, setAeroplaneId] = useState('');
   // id will be taken from storage
   // below line for temporary use
   // you can change the id to observe menu option changes
-  const id = '13';
-  const [aeroplaneId, setAeroplaneId] = useState('');
+
+  // if (sessionStorage.getItem('aeroplaneId')) {
+  //   const id = JSON.parse(sessionStorage.getItem('aeroplaneId'));
+  //   setAeroplaneId(id);
+  // }
+
   const [city, setCity] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
@@ -43,12 +48,12 @@ const ReservationFrom = () => {
         reservation: {
           start_date: startDate,
           end_date: endDate,
-          aeroplane_id: '13',
+          aeroplane_id: aeroplaneId,
           city,
         },
       }),
-    })
-      // .then((response) => showMessage(response.status));
+    });
+    // .then((response) => showMessage(response.status));
 
     setStartDate('');
     setEndDate('');
@@ -60,6 +65,13 @@ const ReservationFrom = () => {
   useEffect(() => {
     dispatch(fetchAeroplane());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('aeroplaneId')) {
+      const id = JSON.parse(sessionStorage.getItem('aeroplaneId'));
+      setAeroplaneId(id);
+    }
+  }, []);
 
   return (
     <div id="reservation-form-container">
@@ -99,7 +111,7 @@ const ReservationFrom = () => {
             className="reservation-input"
             onChange={(e) => setAeroplaneId(e.target.value)}
           // autoFocus
-            value={id}
+            value={aeroplaneId}
             id="dropdown"
           >
             <option hidden>

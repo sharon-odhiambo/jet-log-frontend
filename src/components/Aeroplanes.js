@@ -17,7 +17,7 @@ const Aeroplanes = () => {
   }, [aeroplanes, dispatch]);
 
   const onClickHandler = (e) => {
-    localStorage.clear();
+    // localStorage.clear();
     const aero = aeroplanes.find((a) => a.id === e.target.id);
     localStorage.setItem('aero', JSON.stringify(aero));
   };
