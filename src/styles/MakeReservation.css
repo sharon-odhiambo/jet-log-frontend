@@ -1,19 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
-
-/* remember media query syntax */
-
-/* @media only screen and (max-width: 768px) {
-  .desktop {
-    display: none;
-  }
-} */
-
 #reservation-form-container {
   position: fixed;
   right: 0;
   width: 85%;
   height: 100vh;
+}
+
+#owner {
+  color: black;
+  text-align: left;
+  width: 100%;
 }
 
 #reservation-form {
