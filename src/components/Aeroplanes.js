@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux/es/exports';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -15,11 +14,6 @@ const Aeroplanes = () => {
       dispatch(fetchAeroplane());
     }
   }, [aeroplanes, dispatch]);
-
-  const onClickHandler = (e) => {
-    const aero = aeroplanes.find((a) => a.id === e.target.id);
-    localStorage.setItem('aero', JSON.stringify(aero));
-  };
 
   const handleDragStart = (e) => e.preventDefault();
   return (
@@ -75,7 +69,6 @@ const Aeroplanes = () => {
                 <div
                   style={{ backgroundImage: `url(${a.image})` }}
                   id={a.id}
-                  onClick={onClickHandler}
                   onDragStart={handleDragStart}
                   role="presentation"
                   className="image"
