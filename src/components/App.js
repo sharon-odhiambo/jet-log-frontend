@@ -4,6 +4,7 @@ import Aeroplanes from './Aeroplanes';
 import DeleteAeroplanes from './Aeroplanes/DeletePlane';
 import Aeroplane from './Aeroplane';
 import Navbar from './Navbar/Navbar';
+import ReservationFrom from './MakeReservation';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/delete-plane" element={<DeleteAeroplanes />} />
           <Route path="/Aeroplanes" element={<Aeroplanes />} />
           <Route path="/Aeroplanes/:aeroplaneId" element={<Aeroplane />} />
+          <Route path="/MakeReservation" element={<ReservationFrom />} />
         </Routes>
       </div>
     </BrowserRouter>

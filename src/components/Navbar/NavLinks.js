@@ -22,7 +22,7 @@ const NavLinks = ({ isOpen, setIsOpen }) => (
     </li>
     <li>
       <NavLink
-        to="/make-reservation"
+        to="/makeReservation"
         className="link"
         onClick={() => setIsOpen(!isOpen)}
       >
