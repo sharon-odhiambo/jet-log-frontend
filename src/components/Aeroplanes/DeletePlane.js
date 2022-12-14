@@ -4,20 +4,17 @@ import { useSelector } from 'react-redux/es/exports';
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import '../../styles/Homepage.css';
-import { deleteAeroplane, deletePlane } from '../../redux/aeroplanes/deleteplane';
+import { fetchAeroplane, deletePlane } from '../../redux/aeroplanes/aeroplanes';
 
 const DeleteAeroplanes = () => {
   const dispatch = useDispatch();
-  const aeroplanes = useSelector((state) => state.deleteplanes);
+  const aeroplanes = useSelector((state) => state.aeroplanes);
   useEffect(() => {
-    if (!aeroplanes.length) {
-      dispatch(deleteAeroplane());
-    }
-  }, [aeroplanes, dispatch]);
+    dispatch(fetchAeroplane());
+  }, [dispatch]);
 
   const onClickDelete = (e) => {
     dispatch(deletePlane(e.target.id));
-    window.location.reload();
   };
 
   return (
