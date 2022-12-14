@@ -25,7 +25,6 @@ export const fetchAeroplane = createAsyncThunk(GET_AEROPLANE, async () => {
   return aeros;
 });
 
-<<<<<<< HEAD
 export const addAeroplane = (aeroplane) => (dispatch) => {
   axios
     .post('http://localhost:3000/api/v1/aeroplanes', aeroplane)
@@ -37,29 +36,22 @@ export const addAeroplane = (aeroplane) => (dispatch) => {
     })
     .catch((err) => err);
 };
-=======
-export const deletePlane = createAsyncThunk(
-  DELETE_PLANE,
-  async (id) => {
-    await fetch(`http://127.0.0.1:3000/api/v1/aeroplanes/${id}`, {
-      method: 'DELETE',
-    });
-    return +id;
-  },
-);
->>>>>>> 583d0f2eb22f08669330133bfc907ee10c0c5c94
+
+export const deletePlane = createAsyncThunk(DELETE_PLANE, async (id) => {
+  await fetch(`http://127.0.0.1:3000/api/v1/aeroplanes/${id}`, {
+    method: 'DELETE',
+  });
+  return +id;
+});
 
 const aeroplanesReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${GET_AEROPLANE}/fulfilled`:
       return action.payload;
-<<<<<<< HEAD
     case ADD_AEROPLANE:
       return [...state, action.payload];
-=======
     case `${DELETE_PLANE}/fulfilled`:
       return state.filter((state) => state.id !== action.payload);
->>>>>>> 583d0f2eb22f08669330133bfc907ee10c0c5c94
     default:
       return state;
   }

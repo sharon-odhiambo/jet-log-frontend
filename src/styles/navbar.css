@@ -41,10 +41,9 @@ body {
   justify-content: flex-start;
 }
 
-.user-auth-links button {
+.user-auth-btn {
   text-align: right !important;
   width: auto !important;
-  margin-right: 5%;
   background-color: #fff !important;
 }
 
@@ -57,7 +56,7 @@ body {
   font-size: 1vw;
 }
 
-.user-auth-links button {
+.user-auth-btn {
   color: #000 !important;
   padding: 0.7rem !important;
   width: 100% !important;
@@ -73,7 +72,7 @@ body {
   transition: background 0.7s ease;
 }
 
-.btn-primary:hover {
+.user-auth-btn:hover {
   background-color: #97e00f !important;
   border-radius: 3px;
   transition: color 0.7s ease;
@@ -103,7 +102,7 @@ body {
   .holder li a {
     font-size: 4vw;
   }
-  .user-auth-links button {
+  .user-auth-btn {
     font-size: 4vw !important;
   }
 
@@ -120,8 +119,12 @@ body {
   }
 
   .add-form {
-    padding-top: 5.5rem;
-    padding-bottom: 2rem;
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .add-form h2 {
+    font-size: 5vw !important;
   }
 
   .nav-link {
@@ -153,7 +156,7 @@ body {
   .holder li a {
     font-size: 2.6vw;
   }
-  .user-auth-links button {
+  .user-auth-btn {
     font-size: 2.6vw !important;
   }
 
@@ -170,8 +173,8 @@ body {
   }
 
   .add-form {
-    padding-top: 5rem;
-    padding-bottom: 2rem;
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
   }
 
   .nav-link {
@@ -230,7 +233,5 @@ body {
 }
 
 .user-auth-links {
-  display: flex;
-  flex-direction: column;
-  margin-top: 60%;
+  margin-top: auto;
 }

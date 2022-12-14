@@ -138,6 +138,7 @@ const Authentication = () => {
       <Button
         type="button"
         onClick={handleShow}
+        className="user-auth-btn"
       >
         {authentication ? 'Log Out' : 'Sign In'}
       </Button>
