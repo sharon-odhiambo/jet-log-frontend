@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #96bf01;
+  background-image: url(/src/images/airplane.png);
+  background-size: cover;
+}
+
+.add-form input {
+  width: 50%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+}
+
+.add-form input::placeholder {
+  color: rgba(0, 0, 0, 0.306);
+}
+
+.add-form input:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .add-form input {
+    font-size: 0.7rem;
+  }
+}
+
+.add-form button {
+  width: 4rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 17px;
+  font-size: 1rem;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  background-color: #fff;
+  color: #96bf01;
+  cursor: pointer;
+}
+
+.add-form h2 {
+  font-size: 2rem;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  color: #fff;
+  text-align: center !important;
+}
