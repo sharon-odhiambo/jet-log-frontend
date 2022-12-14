@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
 import '../styles/MakeReservation.css';
@@ -9,15 +8,7 @@ const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [aeroplaneId, setAeroplaneId] = useState('');
-  // id will be taken from storage
-  // below line for temporary use
-  // you can change the id to observe menu option changes
-
-  // if (sessionStorage.getItem('aeroplaneId')) {
-  //   const id = JSON.parse(sessionStorage.getItem('aeroplaneId'));
-  //   setAeroplaneId(id);
-  // }
-
+  // id will be taken from storage (check line 59)
   const [city, setCity] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
@@ -30,13 +21,13 @@ const ReservationFrom = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // const showMessage = (response) => {
-    //   if (response.status === 201) {
-    //     setMessage(<div>Reservation is succesfull ✔️</div>);
-    //   } else {
-    //     setMessage(<div>Something went wrong ❌</div>);
-    //   }
-    // };
+    const showMessage = (response) => {
+      if (response === 201) {
+        setMessage(<div>Reservation is succesfull ✔️</div>);
+      } else {
+        setMessage(<div>Something went wrong ❌</div>);
+      }
+    };
 
     fetch('http://localhost:3000/api/v1/reservations', {
       method: 'POST',
@@ -52,12 +43,10 @@ const ReservationFrom = () => {
           city,
         },
       }),
-    });
-    // .then((response) => showMessage(response.status));
+    }).then((response) => showMessage(response.status));
 
     setStartDate('');
     setEndDate('');
-    // setAeroplaneId('');
     setCity('');
     setInterval(() => { setMessage(''); }, 5000);
   }
@@ -75,8 +64,10 @@ const ReservationFrom = () => {
 
   return (
     <div id="reservation-form-container">
+      <span>{message}</span>
+
       <form id="reservation-form" onSubmit={handleSubmit}>
-        <div className="reservation-form-group">
+        <div className="reservation-form-group" id="form-header">
           <p id="owner">
             Reservation owner:
             {userName}
@@ -110,7 +101,6 @@ const ReservationFrom = () => {
           <select
             className="reservation-input"
             onChange={(e) => setAeroplaneId(e.target.value)}
-          // autoFocus
             value={aeroplaneId}
             id="dropdown"
           >
@@ -139,7 +129,6 @@ const ReservationFrom = () => {
           <button id="reserve" type="submit">Reserve</button>
         </div>
       </form>
-      <span>{message}</span>
     </div>
   );
 };

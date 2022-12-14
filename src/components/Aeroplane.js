@@ -54,7 +54,7 @@ const Aeroplane = () => {
           DISCOVER MORE MODELS
           <GoChevronRight color="#f8c605" />
         </Link>
-        <Link to="/makeReservation" style={{ alignSelf: 'flex-end' }}>
+        <Link to="/" style={{ alignSelf: 'flex-end' }}>
           <button className="reserve-button" type="button">
             Reserve
             <ImCircleRight style={{ margin: '2px 2px 2px 10px' }} />

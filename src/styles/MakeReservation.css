@@ -7,6 +7,17 @@
   height: 100vh;
 }
 
+#form-header {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  background-color: plum;
+  width: 100%;
+  text-align: center;
+}
+
 #owner {
   color: black;
   text-align: left;
