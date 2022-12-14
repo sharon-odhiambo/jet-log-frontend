@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const GET_AEROPLANE = 'jet-log-frontend/aeroplanes/GET_AEROPLANE';
+const DELETE_PLANE = 'jet-log-frontend/aeroplanes/DELETE_PLANE';
 const initialState = [];
 
 export const fetchAeroplane = createAsyncThunk(GET_AEROPLANE, async () => {
@@ -22,10 +23,22 @@ export const fetchAeroplane = createAsyncThunk(GET_AEROPLANE, async () => {
   return aeros;
 });
 
+export const deletePlane = createAsyncThunk(
+  DELETE_PLANE,
+  async (id) => {
+    await fetch(`http://127.0.0.1:3000/api/v1/aeroplanes/${id}`, {
+      method: 'DELETE',
+    });
+    return +id;
+  },
+);
+
 const aeroplanesReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${GET_AEROPLANE}/fulfilled`:
       return action.payload;
+    case `${DELETE_PLANE}/fulfilled`:
+      return state.filter((state) => state.id !== action.payload);
     default:
       return state;
   }
