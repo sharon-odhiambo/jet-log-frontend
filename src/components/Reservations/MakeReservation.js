@@ -68,7 +68,7 @@ const ReservationFrom = () => {
 
   return (
     <div id="reservation-form-container">
-      <span>{message}</span>
+      <span id="message">{message}</span>
 
       <form id="reservation-form" onSubmit={handleSubmit}>
         <div className="reservation-form-group" id="form-header">
