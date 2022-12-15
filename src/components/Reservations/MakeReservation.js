@@ -8,18 +8,17 @@ const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [aeroplaneId, setAeroplaneId] = useState('');
-  // id will be taken from storage (check line 59)
   const [city, setCity] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state.aeroplanes);
-  const session = JSON.parse(localStorage.getItem('session'));
-  const { token } = session;
-  const { user } = session;
-  const userName = user.toUpperCase();
+  const auth = JSON.parse(localStorage.getItem('session'));
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const session = JSON.parse(localStorage.getItem('session'));
+    const { token } = session;
 
     const showMessage = (response) => {
       if (response === 201) {
@@ -69,12 +68,16 @@ const ReservationFrom = () => {
   return (
     <div id="reservation-form-container">
       <span id="message">{message}</span>
-
+      {!auth && <p className="text-danger text-center">You need to sign in to continue.</p>}
+      { auth
+      && (
       <form id="reservation-form" onSubmit={handleSubmit}>
         <div className="reservation-form-group" id="form-header">
           <p id="owner">
             Reservation owner:
-            {userName}
+            {' '}
+            {auth.user}
+
           </p>
         </div>
         <div className="reservation-form-group">
@@ -134,6 +137,7 @@ const ReservationFrom = () => {
           <button id="reserve" type="submit">Reserve</button>
         </div>
       </form>
+      )}
     </div>
 
   );
