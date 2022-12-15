@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
-import '../styles/MakeReservation.css';
+import { fetchAeroplane } from '../../redux/aeroplanes/aeroplanes';
+import '../../styles/MakeReservation.css';
 
 const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
@@ -61,6 +61,10 @@ const ReservationFrom = () => {
       setAeroplaneId(id);
     }
   }, []);
+
+  if (aeroplanes === undefined || aeroplanes.length === 0) {
+    return <div id="no-aeroplane" className="text-danger text-center container p-2 reservations pt-5 mt-3">Unfortunately, we don&apos;t have any aeroplanes available.</div>;
+  }
 
   return (
     <div id="reservation-form-container">
@@ -130,6 +134,7 @@ const ReservationFrom = () => {
         </div>
       </form>
     </div>
+
   );
 };
 

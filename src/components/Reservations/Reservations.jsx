@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchResevations } from '../redux/reservations/reservations';
+import { fetchResevations } from '../../redux/reservations/reservations';
 
 const Reservations = () => {
   const dispatch = useDispatch();

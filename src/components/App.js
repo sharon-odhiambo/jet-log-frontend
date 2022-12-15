@@ -4,8 +4,8 @@ import Aeroplanes from './Aeroplanes';
 import DeleteAeroplanes from './Aeroplanes/DeletePlane';
 import Aeroplane from './Aeroplane';
 import Navbar from './Navbar/Navbar';
-import Reservations from './Reservations';
-import ReservationFrom from './MakeReservation';
+import Reservations from './Reservations/Reservations';
+import ReservationFrom from './Reservations/MakeReservation';
 
 function App() {
   return (
