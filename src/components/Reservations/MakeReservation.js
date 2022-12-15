@@ -94,6 +94,7 @@ const ReservationFrom = () => {
           <input
             className="reservation-input"
             type="date"
+            min={new Date().toISOString().split('T')[0]}
             id="endDate"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
