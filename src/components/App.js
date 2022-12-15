@@ -5,6 +5,8 @@ import DeleteAeroplanes from './Aeroplanes/DeletePlane';
 import Aeroplane from './Aeroplane';
 import Navbar from './Navbar/Navbar';
 import InputAeroplane from './Aeroplanes/InputAeroplane';
+import Reservations from './Reservations';
+import ReservationFrom from './MakeReservation';
 
 function App() {
   let isAdmin;
@@ -21,10 +23,14 @@ function App() {
       <div className="main">
         <Routes>
           <Route path="/" element={<Aeroplanes />} />
-          <Route path="/delete-plane" element={<DeleteAeroplanes />} />
+          {isAdmin && (
+            <Route path="/delete-plane" element={<DeleteAeroplanes />} />
+          )}
           <Route path="/Aeroplanes" element={<Aeroplanes />} />
           <Route path="/Aeroplanes/:aeroplaneId" element={<Aeroplane />} />
           {isAdmin && <Route path="/add-plane" element={<InputAeroplane />} />}
+          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/MakeReservation" element={<ReservationFrom />} />
         </Routes>
       </div>
     </BrowserRouter>

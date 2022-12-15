@@ -1,8 +1,3 @@
 .App {
   text-align: center;
 }
-
-.auth input:focus {
-  outline: 1px solid #97be12;
-  box-shadow: 0 0 5px 0 rgba(151, 224, 15, 1);
-}
