@@ -1,25 +1,24 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
-import '../styles/MakeReservation.css';
+import { fetchAeroplane } from '../../redux/aeroplanes/aeroplanes';
+import '../../styles/MakeReservation.css';
 
 const ReservationFrom = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [aeroplaneId, setAeroplaneId] = useState('');
-  // id will be taken from storage (check line 59)
   const [city, setCity] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state.aeroplanes);
-  const session = JSON.parse(localStorage.getItem('session'));
-  const { token } = session;
-  const { user } = session;
-  const userName = user.toUpperCase();
+  const auth = JSON.parse(localStorage.getItem('session'));
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    const session = JSON.parse(localStorage.getItem('session'));
+    const { token } = session;
 
     const showMessage = (response) => {
       if (response === 201) {
@@ -62,15 +61,22 @@ const ReservationFrom = () => {
     }
   }, []);
 
+  if (aeroplanes === undefined || aeroplanes.length === 0) {
+    return <div id="no-aeroplane" className="text-danger text-center container p-2 reservations pt-5 mt-3">Unfortunately, we don&apos;t have any aeroplanes available.</div>;
+  }
+
   return (
     <div id="reservation-form-container">
-      <span>{message}</span>
-
+      <span id="message">{message}</span>
+      {!auth && <p className="text-danger text-center">You need to sign in to continue.</p>}
+      { auth
+      && (
       <form id="reservation-form" onSubmit={handleSubmit}>
         <div className="reservation-form-group" id="form-header">
           <p id="owner">
             Reservation owner:
-            {userName}
+            {' '}
+            {auth.user}
           </p>
         </div>
         <div className="reservation-form-group">
@@ -90,6 +96,7 @@ const ReservationFrom = () => {
           <input
             className="reservation-input"
             type="date"
+            min={new Date().toISOString().split('T')[0]}
             id="endDate"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
@@ -129,7 +136,9 @@ const ReservationFrom = () => {
           <button id="reserve" type="submit">Reserve</button>
         </div>
       </form>
+      )}
     </div>
+
   );
 };
 
