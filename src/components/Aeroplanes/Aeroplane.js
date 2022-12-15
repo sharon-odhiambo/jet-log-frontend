@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { GoChevronRight } from 'react-icons/go';
 import { ImCircleRight } from 'react-icons/im';
-import { fetchAeroplane } from '../redux/aeroplanes/aeroplanes';
+import { fetchAeroplane } from '../../redux/aeroplanes/aeroplanes';
 
-import '../styles/Details.css';
+import '../../styles/Details.css';
 
 const onClickHandler = (e) => {
   localStorage.setItem('aeroplaneId', JSON.stringify(e));

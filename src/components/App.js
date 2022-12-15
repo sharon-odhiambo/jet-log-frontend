@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Aeroplanes from './Aeroplanes';
+import Aeroplanes from './Aeroplanes/Aeroplanes';
 import DeleteAeroplanes from './Aeroplanes/DeletePlane';
-import Aeroplane from './Aeroplane';
+import Aeroplane from './Aeroplanes/Aeroplane';
 import Navbar from './Navbar/Navbar';
 import Reservations from './Reservations/Reservations';
 import ReservationFrom from './Reservations/MakeReservation';
