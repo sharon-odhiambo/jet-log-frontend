@@ -18,8 +18,7 @@ const Aeroplane = () => {
   }, [dispatch]);
   const aeroplanes = useSelector((state) => state.aeroplanes);
   const { aeroplaneId } = useParams();
-  // eslint-disable-next-line eqeqeq
-  const plane = aeroplanes.findIndex((obj) => obj.id == aeroplaneId);
+  const plane = aeroplanes.findIndex((obj) => obj.id === +aeroplaneId);
   return (
     aeroplanes.length > 0 && (
       <div className="plane-details">
