@@ -7,10 +7,6 @@ body {
   margin: 0;
 }
 
-.logo {
-  max-width: 10rem;
-}
-
 .logo-holder {
   justify-content: center !important;
 }
@@ -45,9 +41,14 @@ body {
   justify-content: flex-start;
 }
 
-.user-auth-links a {
+.user-auth-btn {
   text-align: right !important;
-  width: auto !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  padding: 0.7rem !important;
+  width: 100% !important;
+  font-size: 1vw !important;
+  border: none;
 }
 
 .holder li a {
@@ -62,6 +63,15 @@ body {
 .holder li a:hover {
   background-color: #97e00f;
   border-radius: 3px;
+  transition: color 0.7s ease;
+  transition: background 0.7s ease;
+}
+
+.user-auth-btn:hover {
+  background-color: #97e00f !important;
+  border-radius: 3px;
+  transition: color 0.7s ease;
+  transition: background 0.7s ease;
 }
 
 .active {
@@ -79,9 +89,21 @@ body {
   display: none;
 }
 
-@media (max-width: 768px) {
+.logo {
+  max-width: 100%;
+}
+
+@media (max-width: 610px) {
   .holder li a {
     font-size: 4vw;
+  }
+
+  .user-auth-btn {
+    font-size: 4vw !important;
+  }
+
+  .logo {
+    max-width: 50%;
   }
 
   .active {
@@ -90,6 +112,70 @@ body {
 
   .navigation {
     display: none;
+  }
+
+  .add-form {
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .add-form h2 {
+    font-size: 5vw !important;
+  }
+
+  .nav-link {
+    font-size: 4vw;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .holder {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    border-right: none;
+  }
+
+  .mobileNavigation {
+    display: block;
+  }
+
+  .user-auth-links {
+    margin-top: 10% !important;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 610px) {
+  .holder li a {
+    font-size: 2.6vw;
+  }
+
+  .user-auth-btn {
+    font-size: 2.6vw !important;
+  }
+
+  .logo {
+    max-width: 50%;
+  }
+
+  .active {
+    font-size: 2.9vw !important;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .add-form {
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .nav-link {
+    font-size: 4vw;
   }
 
   .main {
@@ -144,7 +230,5 @@ body {
 }
 
 .user-auth-links {
-  display: flex;
-  flex-direction: column;
-  margin-top: 60%;
+  margin-top: auto;
 }
