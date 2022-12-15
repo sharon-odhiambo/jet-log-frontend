@@ -14,7 +14,6 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   overflow: hidden;
   background-color: #fff;
-  border-right: solid 5px #f9f9f9;
 }
 
 .home {
@@ -22,6 +21,8 @@ body {
   display: flex;
   justify-content: center;
   z-index: -2;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .back {
@@ -44,7 +45,6 @@ body {
 .BrainhubCarousel__container {
   position: relative;
   max-width: 100%;
-  margin: auto;
 }
 
 .BrainhubCarousel__arrows {
@@ -91,7 +91,6 @@ button {
   font-family: 'Panther', sans-serif;
   background-color: #97be12;
   padding: 4%;
-  width: 80%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
