@@ -56,8 +56,8 @@ const ReservationFrom = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (sessionStorage.getItem('aeroplaneId')) {
-      const id = JSON.parse(sessionStorage.getItem('aeroplaneId'));
+    if (localStorage.getItem('aeroplaneId')) {
+      const id = JSON.parse(localStorage.getItem('aeroplaneId'));
       setAeroplaneId(id);
     }
   }, []);
