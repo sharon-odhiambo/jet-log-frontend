@@ -67,6 +67,18 @@ This is a real world practical app for renting planes. When the user visits the 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **[Authentication]**
+- **[Aeroplanes]**
+- **[Aeroplane-Details]**
+- **[Reservations]**
+- **[Make-Reservations]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -88,7 +100,7 @@ Clone this repository to your desired folder:
 #### 1. Clone this repository:
 
 ```bash command
-git clone https://github.com/tkz96/jet-log-frontend.git
+git clone `https://github.com/tkz96/jet-log-frontend.git`
 ```
 
 #### 2. Navigate to the location of the folder in your machine:
