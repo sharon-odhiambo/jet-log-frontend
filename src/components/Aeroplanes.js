@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux/es/exports';
 import { NavLink } from 'react-router-dom';
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -10,14 +11,18 @@ const Aeroplanes = () => {
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state.aeroplanes);
   useEffect(() => {
-    if (!aeroplanes.length) {
       dispatch(fetchAeroplane());
-    }
-  }, [aeroplanes, dispatch]);
+  }, [dispatch]);
+
+  const onClickHandler = (e) => {
+    const aero = aeroplanes.find((a) => a.id === e.target.id);
+    localStorage.setItem('aero', JSON.stringify(aero));
+  };
 
   const handleDragStart = (e) => e.preventDefault();
   return (
-    aeroplanes.length > 0 && (
+    {(!aeroplanes.length) && <h2 className="text-danger text-center">No aeroplanes available at the moment</h2>}
+    {(aeroplanes.length > 0) && (
     <div className="d-flex flex-column gap-3 justify-content-center align-items-center home">
       <h2 className="mt-5 pt-5">Latest Models</h2>
       <p className="top">Kindly select a plane for renting</p>
@@ -69,6 +74,7 @@ const Aeroplanes = () => {
                 <div
                   style={{ backgroundImage: `url(${a.image})` }}
                   id={a.id}
+                  onClick={onClickHandler}
                   onDragStart={handleDragStart}
                   role="presentation"
                   className="image"
@@ -81,7 +87,7 @@ const Aeroplanes = () => {
         ))}
       </Carousel>
     </div>
-    )
+    )}
   );
 };
 
