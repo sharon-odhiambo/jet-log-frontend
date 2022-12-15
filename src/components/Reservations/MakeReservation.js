@@ -77,7 +77,6 @@ const ReservationFrom = () => {
             Reservation owner:
             {' '}
             {auth.user}
-
           </p>
         </div>
         <div className="reservation-form-group">
