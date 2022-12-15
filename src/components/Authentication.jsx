@@ -137,8 +137,8 @@ const Authentication = () => {
     <>
       <Button
         type="button"
-        className="nav-link bg-light border-0 ps-3"
         onClick={handleShow}
+        className="user-auth-btn"
       >
         {authentication ? 'Log Out' : 'Sign In'}
       </Button>
