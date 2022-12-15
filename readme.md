@@ -36,7 +36,7 @@
 
 # 📖 Jetlog Front-End <a name="about-project"></a>
 
-This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's build alongside the [jetlog back-end application](https://github.com/tkz96/jet-log-backend)
+This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's built alongside the [jetlog back-end application](https://github.com/tkz96/jet-log-backend)
 
 ## 🛠 Built With <a name="built-with"></a>
 
