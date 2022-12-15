@@ -55,7 +55,7 @@ const Authentication = () => {
       },
       body: JSON.stringify({
         user: {
-          name: form.name.value,
+          name: form.name.value.toLowerCase(),
           password: form.password.value,
         },
       }),
