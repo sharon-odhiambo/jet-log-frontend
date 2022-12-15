@@ -11,7 +11,7 @@ const Aeroplanes = () => {
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state.aeroplanes);
   useEffect(() => {
-      dispatch(fetchAeroplane());
+    dispatch(fetchAeroplane());
   }, [dispatch]);
 
   const onClickHandler = (e) => {
@@ -21,73 +21,75 @@ const Aeroplanes = () => {
 
   const handleDragStart = (e) => e.preventDefault();
   return (
-    {(!aeroplanes.length) && <h2 className="text-danger text-center">No aeroplanes available at the moment</h2>}
-    {(aeroplanes.length > 0) && (
-    <div className="d-flex flex-column gap-3 justify-content-center align-items-center home">
-      <h2 className="mt-5 pt-5">Latest Models</h2>
-      <p className="top">Kindly select a plane for renting</p>
-      <Carousel
-        plugins={[
-          'arrows',
-          {
-            resolve: slidesToShowPlugin,
-            options: {
-              numberOfSlides: 3,
+    <>
+      {!aeroplanes.length && <h6 className="text-center mt-5">No aeroplanes at the moment</h6>}
+      {aeroplanes.length > 0 && (
+      <div className="d-flex flex-column gap-3 justify-content-center align-items-center home">
+        <h2 className="mt-5 pt-5">Latest Models</h2>
+        <p className="top">Kindly select a plane for renting</p>
+        <Carousel
+          plugins={[
+            'arrows',
+            {
+              resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 3,
+              },
             },
-          },
-        ]}
-        breakpoints={{
-          640: {
-            plugins: [
-              'arrows',
-              {
-                resolve: slidesToShowPlugin,
-                options: {
-                  numberOfSlides: 1,
+          ]}
+          breakpoints={{
+            640: {
+              plugins: [
+                'arrows',
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 1,
+                  },
                 },
-              },
-            ],
-          },
-          1100: {
-            plugins: [
-              'arrows',
-              {
-                resolve: slidesToShowPlugin,
-                options: {
-                  numberOfSlides: 2,
+              ],
+            },
+            1100: {
+              plugins: [
+                'arrows',
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 2,
+                  },
                 },
-              },
-            ],
-          },
-        }}
-        mouseTracking
-        slide={false}
-        fade={false}
-      >
-        {aeroplanes.map((a) => (
-          <div key="aero" className="d-flex flex-column justify-content-center align-items-center gap-3">
-            <NavLink
-              key={a.links}
-              to={`/Aeroplanes/${a.id}`}
-            >
-              <div className="back">
-                <div
-                  style={{ backgroundImage: `url(${a.image})` }}
-                  id={a.id}
-                  onClick={onClickHandler}
-                  onDragStart={handleDragStart}
-                  role="presentation"
-                  className="image"
-                />
-              </div>
-            </NavLink>
-            <span className="name pt-3">{a.name}</span>
-            <p className="d-flex align-self-center ps-5">{a.description}</p>
-          </div>
-        ))}
-      </Carousel>
-    </div>
-    )}
+              ],
+            },
+          }}
+          mouseTracking
+          slide={false}
+          fade={false}
+        >
+          {aeroplanes.map((a) => (
+            <div key="aero" className="d-flex flex-column justify-content-center align-items-center gap-3">
+              <NavLink
+                key={a.links}
+                to={`/Aeroplanes/${a.id}`}
+              >
+                <div className="back">
+                  <div
+                    style={{ backgroundImage: `url(${a.image})` }}
+                    id={a.id}
+                    onClick={onClickHandler}
+                    onDragStart={handleDragStart}
+                    role="presentation"
+                    className="image"
+                  />
+                </div>
+              </NavLink>
+              <span className="name pt-3">{a.name}</span>
+              <p className="d-flex align-self-center ps-5">{a.description}</p>
+            </div>
+          ))}
+        </Carousel>
+      </div>
+      )}
+    </>
   );
 };
 
