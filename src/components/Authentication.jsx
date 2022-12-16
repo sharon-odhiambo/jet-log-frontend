@@ -16,7 +16,7 @@ const Authentication = () => {
     }
     setTimeout(() => {
       setShow(!show);
-    }, 2000);
+    }, 1000);
   };
 
   const validEmail = (email) => {

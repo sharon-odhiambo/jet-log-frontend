@@ -15,12 +15,6 @@ const DeleteAeroplanes = () => {
     dispatch(fetchAeroplane());
   }, [dispatch, aeroId]);
 
-  const onClickHandler = (e) => {
-    dispatch(deletePlane(+e.target.id));
-    const aeroID = aeroplanes.filter((a) => a.id !== +e.target.id);
-    localStorage.setItem('aeroID', JSON.stringify(aeroID));
-  };
-
   return (
     <>
       {!aeroplanes.length && <h6 className="text-center mt-5">No aeroplanes at the moment</h6>}
@@ -75,7 +69,7 @@ const DeleteAeroplanes = () => {
                 />
               </div>
               <span className="name pt-3">{a.name}</span>
-              <button type="button" id={a.id} onClick={onClickHandler}><span>Delete</span></button>
+              <button type="button" id={a.id} onClick={() => { dispatch(deletePlane(a.id)); }}><span>Delete</span></button>
             </div>
           ))}
         </Carousel>
