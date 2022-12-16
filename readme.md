@@ -18,25 +18,21 @@
         - [Key Features](#key-features)
     - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-    - [Setup](#setup)
     - [Prerequisites](#prerequisites)
-    - [Install](#install)
-    - [Usage](#usage)
+    - [Setup](#setup)
     - [Run tests](#run-tests)
-    - [Deployment](#triangular_flag_on_post-deployment)
+    - [Deployment](#deployment)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Jetlog Front-End <a name="about-project"></a>
 
-This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's built alongside the [jetlog back-end application](https://github.com/tkz96/jet-log-backend)
+This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's built alongside the [jetlog back-end application](https://github.com/tkz96/jet-log-backend).
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,7 +50,7 @@ This is a real world practical app for renting planes. When the user visits the 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://render.com/">Render</a></li>
+    <li><a href="https://heroku.com/">Heroku</a></li>
   </ul>
 </details>
 
@@ -79,11 +75,14 @@ This is a real world practical app for renting planes. When the user visits the 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Live Demo
+- This is the [Live Demo Link](https://the-awesome-berkay-akbas-site.netlify.app).
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
+To get a local copy up and running, follow these steps:
 
 ### Prerequisites
 
@@ -97,35 +96,37 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-#### 1. Clone this repository:
+### 1. Clone this repository
 
 ```bash command
 git clone `https://github.com/tkz96/jet-log-frontend.git`
 ```
 
-#### 2. Navigate to the location of the folder in your machine:
+### 2. Navigate to the location of the folder in your machine:
 
 ```bash command
 cd jet-log-frontend
 ```
 
-#### 3. Install the node packages:
+### 3. Install the dependencies
 
 ```bash command
 npm install
 ```
 
-#### 4. Finally you can run the server:
+### 4. Finally you can run the server:
 
 ```bash command
 npm start
 ```
 
-#### 5. To run tests:
+### Run tests
 
 ```bash command
 npm test
 ```
+### Deployment
+This app is hosted at [https://the-awesome-berkay-akbas-site.netlify.app](https://the-awesome-berkay-akbas-site.netlify.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -172,7 +173,7 @@ npm test
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/tkz96/jet-log-frontend/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- ACKNOWLEDGEMENTS -->
@@ -187,6 +188,10 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>⭐
 
-If you like this project, please give it a ⭐ at [jetlog-frontend](https://github.com/tkz96/jet-log-frontend) and [jetlog-backend](https://github.com/tkz96/jet-log-backend)
+If you like this project, please give it a ⭐ at [jetlog-frontend](https://github.com/tkz96/jet-log-frontend/stargazers) and [jetlog-backend](https://github.com/tkz96/jet-log-backend/startgazers)
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
