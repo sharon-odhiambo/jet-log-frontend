@@ -11,9 +11,12 @@ const Authentication = () => {
   const handleShow = () => {
     const auth = localStorage.getItem('session');
     if (auth) {
+      window.location.reload(true);
       localStorage.removeItem('session');
     }
-    setShow(!show);
+    setTimeout(() => {
+      setShow(!show);
+    }, 2000);
   };
 
   const validEmail = (email) => {
@@ -73,6 +76,7 @@ const Authentication = () => {
             }),
           );
           setShow(!show);
+          window.location.reload(true);
         } else {
           document.querySelector('.err').textContent = 'Invalid username or password';
           setTimeout(() => {
@@ -122,6 +126,7 @@ const Authentication = () => {
               }),
             );
             setShow(!show);
+            window.location.reload(true);
           } else {
             document.querySelector('.err').textContent = 'Username or email already taken';
             setTimeout(() => {
@@ -137,8 +142,8 @@ const Authentication = () => {
     <>
       <Button
         type="button"
-        className="nav-link bg-light border-0 ps-3"
         onClick={handleShow}
+        className="user-auth-btn"
       >
         {authentication ? 'Log Out' : 'Sign In'}
       </Button>
