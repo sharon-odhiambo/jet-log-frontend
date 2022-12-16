@@ -9,12 +9,16 @@ import { fetchAeroplane, deletePlane } from '../../redux/aeroplanes/aeroplanes';
 const DeleteAeroplanes = () => {
   const dispatch = useDispatch();
   const aeroplanes = useSelector((state) => state.aeroplanes);
+  const aeroId = localStorage.getItem('aeroID');
+
   useEffect(() => {
     dispatch(fetchAeroplane());
-  }, [dispatch]);
+  }, [dispatch, aeroId]);
 
-  const onClickDelete = (e) => {
-    dispatch(deletePlane(e.target.id));
+  const onClickHandler = (e) => {
+    dispatch(deletePlane(+e.target.id));
+    const aeroID = aeroplanes.filter((a) => a.id !== +e.target.id);
+    localStorage.setItem('aeroID', JSON.stringify(aeroID));
   };
 
   return (
@@ -71,7 +75,7 @@ const DeleteAeroplanes = () => {
                 />
               </div>
               <span className="name pt-3">{a.name}</span>
-              <button type="button" id={a.id} onClick={onClickDelete}><span>Delete</span></button>
+              <button type="button" id={a.id} onClick={onClickHandler}><span>Delete</span></button>
             </div>
           ))}
         </Carousel>
