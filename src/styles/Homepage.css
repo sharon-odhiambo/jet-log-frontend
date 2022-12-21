@@ -1,0 +1,114 @@
+@import 'react-alice-carousel/lib/alice-carousel.css';
+
+@font-face {
+  font-family: 'Panther';
+  src: url('../fonts/PointpantherdemoBold-X32lP.otf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.home {
+  color: #101010;
+  display: flex;
+  justify-content: center;
+  z-index: -2;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.back {
+  width: 130px;
+  height: 130px;
+  background-color: #f9f9f9;
+  border-radius: 50%;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background-size: contain;
+  background-position: 0 25%;
+  background-repeat: no-repeat;
+}
+
+.BrainhubCarousel__container {
+  position: relative;
+  max-width: 100%;
+}
+
+.BrainhubCarousel__arrows {
+  background-color: #97be12;
+  width: 90px;
+  height: 60px;
+  border-radius: 0 50% 50% 0 / 60%;
+}
+
+.BrainhubCarousel__arrows:hover:enabled {
+  background-color: #97e00f;
+}
+
+.BrainhubCarousel__arrows.BrainhubCarousel__arrowRight {
+  transform: rotate(180deg);
+}
+
+.BrainhubCarousel__arrows.BrainhubCarousel__arrowRight span {
+  transform: translate(0%, -50%) rotate(225deg);
+}
+
+h2,
+.name {
+  font-family: 'Panther', sans-serif;
+}
+
+p {
+  color: rgba(201, 201, 201);
+  font-weight: 500;
+}
+
+.top {
+  font-weight: bold;
+}
+
+.top,
+.name {
+  border-bottom: 2px solid rgb(201, 201, 201);
+  padding-bottom: 3%;
+  border-bottom-style: dashed;
+}
+
+button {
+  font-family: 'Panther', sans-serif;
+  background-color: #97be12;
+  padding: 4%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover span {
+  background-color: #97e00f;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 770px) {
+  .back {
+    width: 170px;
+    height: 170px;
+  }
+
+  .image {
+    width: 250px;
+    height: 200px;
+  }
+}

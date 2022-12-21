@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+#reservation-form-container {
+  position: fixed;
+  right: 0;
+  width: 85%;
+  height: 100vh;
+}
+
+#form-header {
+  display: flex;
+  align-items: center;
+}
+
+#message {
+  width: 100%;
+  text-align: center;
+}
+
+#no-aeroplane {
+  width: 100%;
+  text-align: center;
+
+  /* margin-top: 50%; */
+}
+
+#owner {
+  color: black;
+  text-align: left;
+  width: 100%;
+}
+
+#reservation-form {
+  font-family: 'Kumbh Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 768px) {
+  #reservation-form {
+    width: 40vw;
+  }
+}
+
+.reservation-form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.reservation-label {
+  width: 100%;
+  padding: 0 0 10px 0;
+}
+
+.reservation-input {
+  width: 100%;
+  border-radius: 0.375rem;
+  border-color: #97bf0c;
+  border-style: solid;
+  padding: 5px;
+  height: 45px;
+}
+
+select {
+  border: 2px;
+}
+
+#reserve {
+  width: 60%;
+  border-radius: 0.375rem;
+  border-style: none;
+  background-color: #97bf0c;
+  color: white;
+  padding: 10px 0;
+}

@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'Panther';
+  src: url('../fonts/PointpantherdemoBold-X32lP.otf');
+}
+
+body {
+  margin: 0;
+}
+
+.logo-holder {
+  justify-content: center !important;
+}
+
+.main {
+  margin-left: 15%;
+}
+
+.main h1 {
+  text-align: center;
+}
+
+.holder {
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  border-right: solid 5px #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.holder li {
+  display: flex;
+  color: #000;
+  padding: 2px 0 2px 5%;
+  text-decoration: none;
+  font-family: 'Panther', sans-serif;
+  justify-content: flex-start;
+}
+
+.user-auth-btn {
+  text-align: right !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  padding: 0.7rem !important;
+  width: 100% !important;
+  font-size: 1vw !important;
+  border: none;
+}
+
+.holder li a {
+  color: #000;
+  text-decoration: none;
+  padding: 0.7rem;
+  width: 100%;
+  text-align: left;
+  font-size: 1vw;
+}
+
+.holder li a:hover {
+  background-color: #97e00f;
+  border-radius: 3px;
+  transition: color 0.7s ease;
+  transition: background 0.7s ease;
+}
+
+.user-auth-btn:hover {
+  background-color: #97e00f !important;
+  border-radius: 3px;
+  transition: color 0.7s ease;
+  transition: background 0.7s ease;
+}
+
+.active {
+  background-color: #97be12;
+  color: #fefefa !important;
+  font-size: 1.2vw !important;
+  border-radius: 3px;
+}
+
+.active:hover {
+  background-color: #97be12 !important;
+}
+
+.mobileNavigation {
+  display: none;
+}
+
+.logo {
+  max-width: 100%;
+}
+
+@media (max-width: 610px) {
+  .holder li a {
+    font-size: 4vw;
+  }
+
+  .user-auth-btn {
+    font-size: 4vw !important;
+  }
+
+  .logo {
+    max-width: 50%;
+  }
+
+  .active {
+    font-size: 5vw !important;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .add-form {
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .add-form h2 {
+    font-size: 5vw !important;
+  }
+
+  .nav-link {
+    font-size: 4vw;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .holder {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    border-right: none;
+  }
+
+  .mobileNavigation {
+    display: block;
+  }
+
+  .user-auth-links {
+    margin-top: 10% !important;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 610px) {
+  .holder li a {
+    font-size: 2.6vw;
+  }
+
+  .user-auth-btn {
+    font-size: 2.6vw !important;
+  }
+
+  .logo {
+    max-width: 50%;
+  }
+
+  .active {
+    font-size: 2.9vw !important;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .add-form {
+    padding-top: 5.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .nav-link {
+    font-size: 4vw;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .holder {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    border-right: none;
+  }
+
+  .mobileNavigation {
+    display: block;
+  }
+
+  .user-auth-links {
+    margin-top: 10% !important;
+  }
+}
+
+.mobileNavigation .hamburger {
+  font-size: 2rem;
+  color: #97be12;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  z-index: 6;
+  cursor: pointer;
+}
+
+.social-icon {
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+
+.social-links {
+  padding: 0 !important;
+  align-self: center;
+  margin: auto 0 0 0;
+}
+
+.footer-date {
+  padding: 0 !important;
+  align-self: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif !important;
+  margin-bottom: 2rem;
+}
+
+.user-auth-links {
+  margin-top: auto;
+}
