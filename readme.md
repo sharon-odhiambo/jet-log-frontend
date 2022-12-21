@@ -32,7 +32,7 @@
 
 # 📖 Jetlog Front-End <a name="about-project"></a>
 
-This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's built alongside the [jetlog back-end application](https://github.com/tkz96/jet-log-backend).
+This is a real world practical app for renting planes. When the user visits the app they can see all available planes and click on a specific plane to see more details. The user is also authenticated to reserve a plane and see their specific reservations. The app has additional authorization for the admin to add or delete a plane from the database. It's built alongside the [jetlog back-end application](https://github.com/sharon-odhiambo/jet-log-frontend.git).
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -87,7 +87,7 @@ To get a local copy up and running, follow these steps:
 ### Prerequisites
 
 In order to run this project you need:
-- <a href="https://github.com/tkz96/jet-log-backend">Jetlog Backend</a>
+- <a href="https://github.com/sharon-odhiambo/jet-log-backend.git">Jetlog Backend</a>
 - Node and NPM installed
 - git installed [In case you want to clone this repo using your terminal]
 - Any IDE or text editor that supports Javascript
@@ -99,7 +99,7 @@ Clone this repository to your desired folder:
 ### 1. Clone this repository
 
 ```bash command
-git clone `https://github.com/tkz96/jet-log-frontend.git`
+git clone `https://github.com/sharon-odhiambo/jet-log-frontend.git`
 ```
 
 ### 2. Navigate to the location of the folder in your machine:
@@ -126,7 +126,7 @@ npm start
 npm test
 ```
 ### Deployment
-This app is hosted at [https://the-awesome-berkay-akbas-site.netlify.app](https://the-awesome-berkay-akbas-site.netlify.app)
+This app is hosted at [jet-log-live](https://the-awesome-berkay-akbas-site.netlify.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -173,7 +173,7 @@ This app is hosted at [https://the-awesome-berkay-akbas-site.netlify.app](https:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/tkz96/jet-log-frontend/issues).
+Feel free to check the [issues page](https://github.com/sharon-odhiambo/jet-log-frontend.git/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- ACKNOWLEDGEMENTS -->
@@ -188,7 +188,7 @@ Feel free to check the [issues page](https://github.com/tkz96/jet-log-frontend/i
 
 ## ⭐️ Show your support <a name="support"></a>⭐
 
-If you like this project, please give it a ⭐ at [jetlog-frontend](https://github.com/tkz96/jet-log-frontend/stargazers) and [jetlog-backend](https://github.com/tkz96/jet-log-backend/startgazers)
+If you like this project, please give it a ⭐ at [jetlog-frontend](https://github.com/sharon-odhiambo/jet-log-frontend/stargazers) and [jetlog-backend](https://github.com/sharon-odhiambo/jet-log-backend/startgazers)
 
 ## 📝 License <a name="license"></a>
 
